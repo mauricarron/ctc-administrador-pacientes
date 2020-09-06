@@ -16,11 +16,23 @@ const Formulario = () => {
     });
   };
 
+  const [error, actualizarError] = useState(false);
+
   const { mascota, duenio, fecha, hora, sintomas } = cita;
 
   const enviarFormulario = (e) => {
     e.preventDefault();
     // Validar
+    if (
+      mascota.trim() === "" ||
+      duenio.trim() === "" ||
+      fecha.trim() === "" ||
+      hora.trim() === "" ||
+      sintomas.trim() === ""
+    ) {
+      actualizarError(true);
+      return;
+    }
     // Asignar ID
     // Crear la cita
     // Reiniciar el form
@@ -29,6 +41,9 @@ const Formulario = () => {
   return (
     <Fragment>
       <h2>Crear Cita</h2>
+      {error ? (
+        <p className="alerta-error">Todos los campos son obligatorios</p>
+      ) : null}
       <form onSubmit={enviarFormulario}>
         <label>Mascota</label>
         <input
