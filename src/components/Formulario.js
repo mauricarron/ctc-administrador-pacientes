@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import uuid from "uuid/dist/v4";
+import PropTypes from "prop-types";
 
 const Formulario = ({ crearCita }) => {
   const [cita, actualizarCita] = useState({
@@ -35,12 +36,10 @@ const Formulario = ({ crearCita }) => {
     }
     actualizarError(false);
 
-    // Asignar ID
     cita.id = uuid();
 
-    // Crear la cita
     crearCita(cita);
-    // Reiniciar el form
+
     actualizarCita({
       mascota: "",
       duenio: "",
@@ -87,6 +86,7 @@ const Formulario = ({ crearCita }) => {
         <input
           type="time"
           name="hora"
+          step="600"
           className="u-full-width"
           onChange={actualizarState}
           value={hora}
@@ -104,6 +104,10 @@ const Formulario = ({ crearCita }) => {
       </form>
     </Fragment>
   );
+};
+
+Formulario.propTypes = {
+  crearCita: PropTypes.func.isRequired,
 };
 
 export default Formulario;
