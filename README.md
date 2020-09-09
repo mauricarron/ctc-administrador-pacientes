@@ -9,7 +9,7 @@
 Proyecto de aprendizaje realizado en el curso **Desarrollo FrontEnd con React**, gracias a la iniciativa de capacitación en tecnologías digitales por el Cluster Tecnológico de Catamarca (CTC). 
 
 ## 🔍 Objetivos
- -Explorar los elementos básicos de React
+ - Explorar los elementos básicos de React
 
 ## ✅ Tecnologías
 
